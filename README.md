@@ -12,15 +12,17 @@
 
 1. node_modules 설치
 
-cd ${project.root}/src/main/resource/vue
+콘솔에서 해당 경로로 이동 ${project.root}/src/main/resource/vue
 
 npm install
 
+
 2. vue install
 
-cd ${project.root}/src/main/resource/vue
+콘솔에서 해당 경로로 이동 ${project.root}/src/main/resource/vue
 
 npm run build
+
 
 3. Spring boot run
 
@@ -29,6 +31,7 @@ npm run build
 또는
 
 개발툴에서 GodMomsApplication 실행
+
 
 
 ### Vue 만 실행 할 경우
