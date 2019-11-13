@@ -1,0 +1,24 @@
+account:
+  api:
+    kakao:
+      client_id: 06190d64929336b12c0c9b6bba0502e5
+      client_secret: kPCCWvx8hNcbLmGhPJ8XGMtEBsFbs93Y
+      account_url: https://kauth.kakao.com/oauth/authorize
+      token_url: https://kauth.kakao.com/oauth/token
+      params:
+        response_type: code
+    google:
+      client_id: 486300282319-0rjs7g7rk6vihh00sumpobnjkarjq6a5.apps.googleusercontent.com
+      client_secret: 5FL7dfax8_rlOvi9VbKLZa-r
+      account_url: https://accounts.google.com/o/oauth2/v2/auth
+      token_url: https://oauth2.googleapis.com/token
+      params:
+          scope: https://www.googleapis.com/auth/drive.metadata.readonly
+          access_type: offline
+          include_granted_scopes: true
+          state: state_parameter_passthrough_value
+          response_type: code
+
+logging:
+  level:
+    org.apache.http: DEBUG
