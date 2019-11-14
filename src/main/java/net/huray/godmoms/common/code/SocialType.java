@@ -1,4 +1,4 @@
-package huray.godmoms.common.code;
+package net.huray.godmoms.common.code;
 
 import lombok.Getter;
 
@@ -6,7 +6,9 @@ import java.util.Arrays;
 
 public enum SocialType {
     GOOGLE("google"),
-    KAKAO("kakao");
+    KAKAO("kakao"),
+    FACEBOOK("facebook"),
+    NAVER("naver");
 
     @Getter
     private String code;

@@ -1,6 +1,6 @@
-package huray.godmoms.converter;
+package net.huray.godmoms.converter;
 
-import huray.godmoms.common.code.SocialType;
+import net.huray.godmoms.common.code.SocialType;
 import org.springframework.core.convert.converter.Converter;
 
 public class SocialTypeConverter implements Converter<String, SocialType> {

@@ -4,7 +4,7 @@ plugins {
 	id 'java'
 }
 
-group = 'huray.godmoms'
+group = 'net.huray.godmoms'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.9'
 

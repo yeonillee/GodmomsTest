@@ -1,4 +1,4 @@
-package huray.godmoms.common.dto;
+package net.huray.godmoms.common.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

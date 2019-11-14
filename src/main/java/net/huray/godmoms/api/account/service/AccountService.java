@@ -1,10 +1,10 @@
-package huray.godmoms.api.account.service;
+package net.huray.godmoms.api.account.service;
 
-import huray.godmoms.common.code.SocialType;
-import huray.godmoms.common.dto.TokenRequest;
-import huray.godmoms.common.dto.TokenResponse;
-import huray.godmoms.common.property.SocialApiProperties;
-import huray.godmoms.common.property.AccountApiProperties;
+import net.huray.godmoms.common.code.SocialType;
+import net.huray.godmoms.common.dto.TokenRequest;
+import net.huray.godmoms.common.dto.TokenResponse;
+import net.huray.godmoms.common.property.SocialApiProperties;
+import net.huray.godmoms.common.property.AccountApiProperties;
 import org.apache.http.client.utils.URIBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -25,15 +25,19 @@ public class AccountService {
     @Autowired
     private RestTemplate restTemplate;
 
+    private String createCallbackUri(SocialType type, URI baseUri) {
+        URIBuilder builder = new URIBuilder(baseUri);
+        builder.setPathSegments("account", "callback", type.getCode());
+
+        return builder.toString();
+    }
+
     public String createAccountUri(SocialType type, URI uri) throws URISyntaxException {
         SocialApiProperties properties = accountApiProperties.getApiProperties(type);
 
-        URIBuilder callbackBuilder = new URIBuilder(uri);
-        callbackBuilder.setPathSegments("account", "callback", type.getCode());
-
         URIBuilder builder = new URIBuilder(properties.getAccountUrl());
         builder.addParameter("client_id", properties.getClientId());
-        builder.addParameter("redirect_uri", callbackBuilder.toString());
+        builder.addParameter("redirect_uri", createCallbackUri(type, uri));
 
         if (properties.getParams() != null) {
             properties.getParams().forEach((key, value) -> {

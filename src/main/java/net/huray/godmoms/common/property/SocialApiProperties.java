@@ -1,4 +1,4 @@
-package huray.godmoms.common.property;
+package net.huray.godmoms.common.property;
 
 import lombok.Getter;
 import lombok.Setter;

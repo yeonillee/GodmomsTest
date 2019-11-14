@@ -18,6 +18,22 @@ account:
           include_granted_scopes: true
           state: state_parameter_passthrough_value
           response_type: code
+    facebook:
+      client_id: 992841737715623
+      client_secret: 60dc18ed2678dc1791ddf21cdf6d7f6f
+      account_url: https://www.facebook.com/v5.0/dialog/oauth
+      token_url: https://graph.facebook.com/v5.0/oauth/access_token
+      params:
+        state: abcd
+    naver:
+      client_id: WkkkmGN4o4XmJhamiQRh
+      client_secret: 4AuUeoa8r2
+      account_url: https://nid.naver.com/oauth2.0/authorize
+      token_url: https://nid.naver.com/oauth2.0/token
+      params:
+        response_type: code
+        state: abdcds
+
 
 logging:
   level:

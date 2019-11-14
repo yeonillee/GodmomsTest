@@ -1,4 +1,4 @@
-package huray.godmoms.config;
+package net.huray.godmoms.config;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;

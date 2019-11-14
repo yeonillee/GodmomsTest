@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
-    <h1>{{code}}</h1>
+    <h1>{{title}}</h1>
     <router-view/>
   </div>
 </template>
@@ -13,11 +13,8 @@ export default {
   name: 'App',
   data() {
     return {
-      code: 'Login Page'
+      title: 'Godmoms'
     }
-  }, created() {
-    console.log(this.$cookie.get("Authorization"))
-    console.log(window)
   }
 }
 </script>

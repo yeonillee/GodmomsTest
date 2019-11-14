@@ -1,7 +1,7 @@
-package huray.godmoms.api.account.controller;
+package net.huray.godmoms.api.account.controller;
 
-import huray.godmoms.api.account.service.AccountService;
-import huray.godmoms.common.code.SocialType;
+import net.huray.godmoms.api.account.service.AccountService;
+import net.huray.godmoms.common.code.SocialType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -50,12 +51,22 @@ public class AccountController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(new URI("/"));
-//        headers.add(HttpHeaders.AUTHORIZATION, token);
-//        headers.add(HttpHeaders.SET_COOKIE, "Authorization=" + token);
-//        response.addCookie(new Cookie("authorization", token));
+        headers.add(HttpHeaders.AUTHORIZATION, token);
+        headers.add(HttpHeaders.SET_COOKIE, "Authorization=" + token);
+        response.addCookie(new Cookie("authorization", token));
 
         request.getSession().setAttribute(HttpHeaders.AUTHORIZATION, token);
 
         return new ResponseEntity<>(token, headers, HttpStatus.SEE_OTHER);
+    }
+
+    @RequestMapping(value = "/logout")
+    public ResponseEntity logout(HttpServletRequest request) throws URISyntaxException {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setLocation(new URI("/"));
+
+        request.getSession().removeAttribute(HttpHeaders.AUTHORIZATION);
+
+        return new ResponseEntity(headers, HttpStatus.SEE_OTHER);
     }
 }

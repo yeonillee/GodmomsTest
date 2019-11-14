@@ -3,7 +3,7 @@ import VueCookie from 'vue-cookie'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
-import LoginSuccess from '@/components/LoginSuccess'
+import Main from '@/components/Main'
 
 Vue.use(Router)
 Vue.use(VueCookie)
@@ -13,24 +13,21 @@ var router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Login',
-      component: Login,
+      name: 'Main',
+      component: Main,
       props: true
       // meta: {authRequired: true}
     },
     {
-      path: '/loginSuccess',
-      name: 'LoginSuccess',
-      component: LoginSuccess
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ]
 })
 
-router.beforeEach(function(to, from, next) {
-  console.log(to);
-  console.log(from);
-  
-  next();
+router.beforeEach(function(to, from, next) {  
+  next()
 })
 
 export default router

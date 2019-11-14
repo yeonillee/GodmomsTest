@@ -1,6 +1,6 @@
-package huray.godmoms.config;
+package net.huray.godmoms.config;
 
-import huray.godmoms.converter.SocialTypeConverter;
+import net.huray.godmoms.converter.SocialTypeConverter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
